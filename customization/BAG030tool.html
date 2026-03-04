@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>手工訂製包｜Niizo - 只給與眾不同的你</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="無添加托特包共有三種尺寸，小的適合手提，非常輕便，中的可以上班肩背，放得下A4文件，大的適合習慣把家當扛進扛出的人。">
+  <meta name="keywords"
+    content="DIY,材料包,拼布,手工,帆布包,紙型,手作教學,生活雜貨, 生活雑貨, 手作, 手は, 禮品, 訂製品, handmade, sewing projects, handicraft, zakka ">
+  <meta property="og:image" content="http://www.niizo.com/customization/images/mainBanner.jpg" />
+
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/customTool.css" rel="stylesheet">
+  <!-- Vanilla JS functionality -->
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      // 預載 WebP 圖片機制
+      const preloadImage = (url) => { const img = new Image(); img.src = url; };
+
+      // 袋身事件監聽
+      document.querySelectorAll('#customBody .swatch').forEach(el => {
+        const c = Array.from(el.classList).find(cls => cls !== 'swatch' && cls !== 'selected');
+        if (c) preloadImage("images/BAG030/body" + c + ".webp");
+
+        el.addEventListener('click', function () {
+          document.querySelectorAll('#customBody li').forEach(li => li.classList.remove('selected'));
+          document.querySelector('#customBox #bagBody').src = "images/BAG030/body" + c + ".webp";
+          this.classList.add('selected');
+        });
+      });
+
+      // 揹帶事件監聽
+      document.querySelectorAll('#customHandle .swatch').forEach(el => {
+        const c = Array.from(el.classList).find(cls => cls !== 'swatch' && cls !== 'selected');
+        if (c) preloadImage("images/BAG030/handle" + c + ".webp");
+
+        el.addEventListener('click', function () {
+          document.querySelectorAll('#customHandle li').forEach(li => li.classList.remove('selected'));
+          document.querySelector('#customBox #bagHandle').src = "images/BAG030/handle" + c + ".webp";
+          this.classList.add('selected');
+        });
+      });
+
+      // 袋底事件監聽
+      document.querySelectorAll('#customBottom .swatch').forEach(el => {
+        const c = Array.from(el.classList).find(cls => cls !== 'swatch' && cls !== 'selected');
+        if (c) preloadImage("images/BAG030/bottom" + c + ".webp");
+
+        el.addEventListener('click', function () {
+          document.querySelectorAll('#customBottom li').forEach(li => li.classList.remove('selected'));
+          document.querySelector('#customBox #bagBottom').src = "images/BAG030/bottom" + c + ".webp";
+          this.classList.add('selected');
+        });
+      });
+
+      // 包邊事件監聽
+      document.querySelectorAll('#customTop .swatch').forEach(el => {
+        const c = Array.from(el.classList).find(cls => cls !== 'swatch' && cls !== 'selected');
+        if (c) preloadImage("images/BAG030/top" + c + ".webp");
+
+        el.addEventListener('click', function () {
+          document.querySelectorAll('#customTop li').forEach(li => li.classList.remove('selected'));
+          document.querySelector('#customBox #bagTop').src = "images/BAG030/top" + c + ".webp";
+          this.classList.add('selected');
+        });
+      });
+    });
+
+    window.setCustomValue = function () {
+      let customValue = "";
+      customValue += "【皮標文字】" + (document.getElementById("leatherText")?.value || "無此備註") + "、";
+      let body = document.querySelector("#customBody .selected");
+      customValue += "【袋身布】" + (body ? body.getAttribute("title") : "") + "、";
+      let handle = document.querySelector("#customHandle .selected");
+      customValue += "【揹帶布】" + (handle ? handle.getAttribute("title") : "") + "、";
+      let bottom = document.querySelector("#customBottom .selected");
+      customValue += "【袋底布】" + (bottom ? bottom.getAttribute("title") : "") + "、";
+      let topEle = document.querySelector("#customTop .selected");
+      customValue += "【包邊與內裡上緣布】" + (topEle ? topEle.getAttribute("title") : "");
+
+      document.getElementById("customValue").innerText = customValue;
+
+      // 複製到剪貼簿
+      navigator.clipboard.writeText(customValue).then(() => {
+        const btn = document.getElementById('copyBtn');
+        if (btn) {
+          const originalText = btn.innerText;
+          btn.innerText = '✅ 已複製！請前往購物車貼上';
+          btn.classList.add('btn-success');
+          btn.classList.remove('btn-primary');
+          setTimeout(() => {
+            btn.innerText = originalText;
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-primary');
+          }, 3000);
+        }
+      }).catch(err => {
+        console.error('複製失敗', err);
+      });
+    };
+  </script>
+</head>
+
+<body>
+  <!---->
+  <nav class="navbar navbar-light bg-light"> <a class="navbar-brand" href="http://www.niizo.com"> <img
+        src="../images/niizoLogo.png" class="d-inline-block align-top logo" alt=""> 手工訂製包</a> </nav>
+  <!---->
+  <div class="container customDesignBox">
+    <div class="row">
+      <div class="col col-12 col-md-6">
+        <a id="customDesignBox"></a>
+        <div id="customBox">
+          <img src="images/BAG030/bodyAshBlue.webp" id="bagBody" />
+          <img src="images/BAG030/topIronGray.webp" id="bagTop" class="layer" />
+          <img src="images/BAG030/handleBrown.webp" id="bagHandle" class="layer" />
+          <img src="images/BAG030/bottomIronGray.webp" id="bagBottom" class="layer" />
+        </div>
+      </div>
+      <div class="col col-12 col-md-6">
+        <h5 class="customDesignTitle">1.色彩自己配</h5>
+        <div class="customUnit"><img src="images/iconCustomBody.jpg" class="icon" />
+          <ul class="swatchList" id="customBody">
+            <li class="swatch Mustard" title="芥末黃"></li>
+            <li class="swatch AshBlue selected" title="灰藍"></li>
+            <li class="swatch Pink" title="桃紅"></li>
+            <li class="swatch Navy" title="海軍藍"></li>
+            <li class="swatch LakeBlue" title="粉水藍"></li>
+            <!--<li class="swatch Gray"  title="中性灰"></li>-->
+            <li class="swatch Brown" title="咖啡"></li>
+            <li class="swatch Black" title="黑"></li>
+            <li class="swatch Red" title="紅"></li>
+            <li class="swatch IronGray" title="鐵灰"></li>
+            <li class="swatch White" title="米白"></li>
+          </ul>
+        </div>
+        <!---->
+        <div class="customUnit"> <img src="images/iconCustomHandle.jpg" class="icon" />
+          <ul class="swatchList" id="customHandle">
+            <li class="swatch Mustard" title="芥末黃"></li>
+            <li class="swatch AshBlue" title="灰藍"></li>
+            <li class="swatch Pink" title="桃紅"></li>
+            <li class="swatch Navy" title="海軍藍"></li>
+            <li class="swatch LakeBlue" title="粉水藍"></li>
+            <!--<li class="swatch Gray"  title="中性灰"></li>-->
+            <li class="swatch Brown selected" title="咖啡"></li>
+            <li class="swatch Black" title="黑"></li>
+            <li class="swatch Red" title="紅"></li>
+            <li class="swatch IronGray" title="鐵灰"></li>
+            <li class="swatch White" title="米白"></li>
+          </ul>
+        </div>
+        <!---->
+        <div class="customUnit"> <img src="images/iconCustomSide.jpg" class="icon" />
+          <ul class="swatchList" id="customTop">
+            <li class="swatch Mustard" title="芥末黃"></li>
+            <li class="swatch AshBlue" title="灰藍"></li>
+            <li class="swatch Pink" title="桃紅"></li>
+            <li class="swatch Navy" title="海軍藍"></li>
+            <li class="swatch LakeBlue" title="粉水藍"></li>
+            <!--<li class="swatch Gray" title="中性灰"></li>-->
+            <li class="swatch Brown" title="咖啡"></li>
+            <li class="swatch Black" title="黑"></li>
+            <li class="swatch Red" title="紅"></li>
+            <li class="swatch IronGray selected" title="鐵灰"></li>
+            <li class="swatch White" title="米白"></li>
+          </ul>
+        </div>
+        <!---->
+        <div class="customUnit"> <img src="images/iconCustomBottom.jpg" class="icon" />
+          <ul class="swatchList" id="customBottom">
+            <li class="swatch Mustard" title="芥末黃"></li>
+            <li class="swatch AshBlue" title="灰藍"></li>
+            <li class="swatch Pink" title="桃紅"></li>
+            <li class="swatch Navy" title="海軍藍"></li>
+            <li class="swatch LakeBlue" title="粉水藍"></li>
+            <!--<li class="swatch Gray" title="中性灰"></li>-->
+            <li class="swatch Brown" title="咖啡"></li>
+            <li class="swatch Black" title="黑"></li>
+            <li class="swatch Red" title="紅"></li>
+            <li class="swatch IronGray selected" title="鐵灰"></li>
+          </ul>
+          <small class="form-text text-danger">配色模擬雖已相當擬真，但因不同螢幕皆有色差，成品有些微差異，敬請見諒！</small>
+        </div>
+        <!---->
+        <h5>2.訂製皮標文字</h5>
+        <div class="row no-gutters leatherCustom">
+          <div class="col col-auto"> <img src="images/leatherTag.png" class="leatherTag" /><img src="images/arrow.png"
+              class="leaterArrow" /> </div>
+          <div class="col col-7">
+            <form class="form-group">
+              <input type="text" class="form-control" placeholder="訂製您的皮標文字" maxlength="10" id="leatherText">
+              <small class="form-text text-danger">限10個大寫英文字母！</small>
+            </form>
+          </div>
+        </div>
+        <!---->
+        <h5>3.產生訂製參數</h5>
+        <div class="form-group">
+          <button id="copyBtn" onclick="setCustomValue();" type="button"
+            class="btn btn-primary btn-sm">產生訂製參數並複製</button><br /><span
+            class="text-danger small mt-2 d-inline-block">請複製下列訂製參數，並貼在購物車的訂單備註中，我們將依此參數為您訂製</span>
+          <p id="customValue" class="alert alert-secondary small mt-2">尚無參數，請點選上方「產生參數並複製」按鈕</p>
+        </div>
+        <!----><!---->
+        訂購請至 &gt; <a href="https://shop.niizo.com/products/bag030" target="_blank">無添加托特包商品頁</a>
+      </div>
+    </div>
+  </div>
+
+  <!---->
+  <div class="container-fluid footer">
+    <div class="row  text-light small">
+      <div class="col text-left">版權所有 © SINCE 2008 niizo All Rights Reserved.</div>
+      <div class="col text-right "><a href="http://www.niizo.com/about.html" title="關於Niizo手作"
+          class="text-light">關於Niizo</a> | <a href="http://www.facebook.com/niencraft" target="_blank"
+          class="text-light">facebook粉絲團 </a>| <a href="http://blog.niizo.com/" target="_blank"
+          class="text-light">Amy手作部落格</a></div>
+    </div>
+  </div>
+</body>
+
+</html>

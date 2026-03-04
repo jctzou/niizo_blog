@@ -1,0 +1,291 @@
+@charset "utf-8";
+
+/* CSS Document */
+.navbar {
+	padding: 5px 15px;
+}
+
+.navbar-brand .logo {
+	width: 80px;
+	height: auto;
+	padding-top: 0px;
+	margin-right: 10px;
+}
+
+.navbar-brand {
+	font-size: 13px;
+	color: #777 !important;
+}
+
+body {
+	font-family: 微軟正黑體, Verdana, Geneva, sans-serif;
+}
+
+#customBox {
+	position: relative;
+
+}
+
+#customBox img.layer {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#customBox img {
+	width: 100%;
+	height: auto;
+}
+
+/*---*/
+.marginL {
+	margin: 120px 0px;
+}
+
+.marginM {
+	margin: 60px 0px;
+}
+
+.marginS {
+	margin: 20px 0px;
+}
+
+.descriptionBox {
+	margin: 15px 0px 25px 0px;
+	color: #666;
+}
+
+/*----*/
+.customDesignBox {
+	position: relative;
+	padding: 20px;
+	margin: 10px auto;
+	background-color: #FFF;
+	-webkit-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.customDesignTitle {
+	margin: 30px 0px 15px 0px;
+}
+
+.customUnit {
+	width: 100%;
+	clear: both;
+	margin: 5px 0px;
+}
+
+.customUnit .icon {
+	float: left;
+	margin: 0px 10px 0px 0px;
+	height: 40px;
+}
+
+.customUnit .swatchList {
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;
+}
+
+.swatchList li.swatch {
+	padding: 0px;
+	margin: 4px;
+	list-style: none;
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	cursor: pointer;
+	border-radius: 18px;
+	background-size: 80px;
+	background-position: center;
+}
+
+.swatchList li.swatch2 {
+	padding: 0px;
+	margin: 4px;
+	list-style: none;
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	cursor: pointer;
+	border-radius: 18px;
+	background-size: 150px;
+	background-position: center;
+}
+
+.swatchList li.selected {
+	outline: 3px solid #ebebeb;
+	-webkit-transition: border ease-out 0.3s;
+	/* Safari */
+	transition: border ease-out 0.3s;
+}
+
+.swatchList li .info {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	padding-top: 18px;
+	font-size: 14px;
+	color: #fff;
+	line-height: 16px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 18px;
+}
+
+.swatchList .FAD {
+	background-image: url(../images/SGB01/bodyFAD.jpg);
+}
+
+.swatchList .MGD {
+	background-image: url(../images/SGB01/bodyMGD.jpg);
+}
+
+.swatchList .GST {
+	background-image: url(../images/SGB01/bodyGST.jpg);
+}
+
+.swatchList .UBK {
+	background-image: url(../images/SGB01/bodyUBK.jpg);
+}
+
+.swatchList .FP {
+	background-image: url(../images/SGB01/bodyFP.jpg);
+}
+
+.swatchList .PGL {
+	background-image: url(../images/SGB01/bodyPGL.jpg);
+}
+
+.swatchList .MST {
+	background-image: url(../images/SGB01/bodyMST.jpg);
+}
+
+/*----*/
+.swatchList .YTM {
+	background-image: url(../images/SGB01/coverYTM.png);
+}
+
+.swatchList .RS {
+	background-image: url(../images/SGB01/coverRS.png);
+}
+
+.swatchList .SBB {
+	background-image: url(../images/SGB01/coverSBB.png);
+}
+
+.swatchList .SLC {
+	background-image: url(../images/SGB01/coverSLC.png);
+}
+
+.swatchList .BFS {
+	background-image: url(../images/SGB01/coverBFS.png);
+}
+
+.swatchList .UH {
+	background-image: url(../images/SGB01/coverUH.png);
+}
+
+.swatchList .CWD {
+	background-image: url(../images/SGB01/coverCWD.png);
+}
+
+.swatchList .DBL {
+	background-image: url(../images/SGB01/coverDBL.png);
+}
+
+.swatchList .FSD {
+	background-image: url(../images/SGB01/coverFSD.png);
+}
+
+.swatchList .OTR {
+	background-image: url(../images/SGB01/coverOTR.png);
+}
+
+.swatchList .STG {
+	background-image: url(../images/SGB01/coverSTG.png);
+}
+
+.swatchList .RBYA {
+	background-image: url(../images/SGB01/coverRBYA.png);
+}
+
+
+.leatherTag {
+	width: 100px;
+	height: auto;
+}
+
+.leatherCustom {
+	clear: both;
+	margin: 0px 0px;
+}
+
+.leatherCustom input {
+	display: inline-block;
+	margin: 5px 0px 0px 0px;
+}
+
+.leatherCustom .leaterArrow {
+	margin-top: -10px;
+	margin-left: -30px;
+}
+
+/*----*/
+.imgGrid {
+	width: 100%;
+	height: 360px;
+	background-size: cover;
+	background-position: center;
+}
+
+.autoSize {
+	width: 100%;
+	height: auto;
+}
+
+.warrenty {
+	color: #2AACD4;
+}
+
+.member img {
+	width: 80px;
+	height: auto;
+	padding: 10px;
+}
+
+/*----*/
+.footer {
+	padding: 15px;
+	background-color: #aaa;
+	font-size: 12px;
+}
+
+.footer .outerLink {
+	padding: 20px 15px 30px 15px;
+	text-align: center;
+}
+
+.footer .outerLink img {
+	margin: 0px 15px;
+	height: 40px;
+	width: auto;
+}
+
+/***********************/
+@media(max-width: 768px) {
+	.customDesignBox {
+		margin-top: 0px;
+	}
+
+	.customDesignBox>.row>.col-12:first-child {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background-color: #fff;
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid #eee;
+	}
+}

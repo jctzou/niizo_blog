@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>niizo 輕量護脊書包｜配色小工具</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="超方便的選色神器來啦！有選色障礙嗎？直接丟給孩子自己玩配色，媽媽吹冷氣等結果就好啦">
+  <meta name="keywords" content="書包,輕量,護脊,小一,小學,護脊書包,好揹">
+  <meta property="og:image" content="https://www.niizo.com/customization/images/SGB01/ogimage02.jpg" />
+  <meta property="og:description" content="超方便的選色神器來啦！有選色障礙嗎？直接丟給孩子自己玩配色，媽媽吹冷氣等結果就好啦" />
+  <meta property="og:title" content="niizo 輕量護脊書包｜配色小工具" />
+
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/customTool2.css" rel="stylesheet">
+  <!-- Vanilla JS functionality -->
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      // 預載 WebP 圖片機制
+      const preloadImage = (url) => { const img = new Image(); img.src = url; };
+
+      // 袋身事件監聽
+      document.querySelectorAll('#customBody .swatch').forEach(el => {
+        const c = Array.from(el.classList).find(cls => cls !== 'swatch' && cls !== 'selected');
+        if (c) preloadImage("images/SGB01/body" + c + ".webp");
+
+        el.addEventListener('click', function () {
+          document.querySelectorAll('#customBody li').forEach(li => li.classList.remove('selected'));
+          document.querySelector('#customBox #bagBody').src = "images/SGB01/body" + c + ".webp";
+          this.classList.add('selected');
+        });
+      });
+
+      // 袋蓋事件監聽
+      document.querySelectorAll('#customCover .swatch2').forEach(el => {
+        const c = Array.from(el.classList).find(cls => cls !== 'swatch2' && cls !== 'selected');
+        if (c) preloadImage("images/SGB01/cover" + c + ".webp");
+
+        el.addEventListener('click', function () {
+          document.querySelectorAll('#customCover li').forEach(li => li.classList.remove('selected'));
+          document.querySelector('#customBox #cover').src = "images/SGB01/cover" + c + ".webp";
+          this.classList.add('selected');
+        });
+      });
+    });
+
+    window.setCustomValue = function () {
+      let customValue = "";
+      customValue += "【皮標文字】" + (document.getElementById("leatherText")?.value || "無") + "、";
+      let body = document.querySelector("#customBody .selected");
+      customValue += "【袋身布】" + (body ? body.getAttribute("title") : "") + "、";
+      let cover = document.querySelector("#customCover .selected");
+      customValue += "【袋蓋款式】" + (cover ? cover.getAttribute("title") : "");
+
+      document.getElementById("customValue").innerText = customValue;
+
+      // 複製到剪貼簿
+      navigator.clipboard.writeText(customValue).then(() => {
+        const btn = document.getElementById('copyBtn');
+        if (btn) {
+          const originalText = btn.innerText;
+          btn.innerText = '✅ 已複製！請前往購物車貼上';
+          btn.classList.add('btn-success');
+          btn.classList.remove('btn-primary');
+          setTimeout(() => {
+            btn.innerText = originalText;
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-primary');
+          }, 3000);
+        }
+      }).catch(err => {
+        console.error('複製失敗', err);
+      });
+    };
+  </script>
+</head>
+
+<body>
+  <!---->
+  <nav class="navbar navbar-light bg-light"> <a class="navbar-brand" href="http://shop.niizo.com"> <img
+        src="../images/niizoLogo.png" class="d-inline-block align-top logo" alt=""> 輕量護脊書包｜配色小工具</a> </nav>
+  <!---->
+  <div class="container customDesignBox">
+    <div class="row">
+      <div class="col col-12 col-md-6">
+        <a id="customDesignBox"></a>
+        <div id="customBox">
+          <img src="images/SGB01/bodyFAD.webp" id="bagBody" />
+          <img src="images/SGB01/coverYTM.webp" id="cover" class="layer" />
+        </div>
+      </div>
+      <div class="col col-12 col-md-6">
+        <h5 class="customDesignTitle">➊ 選擇袋身色彩</h5>
+        <div class="customUnit">
+          <ul class="swatchList" id="customBody">
+            <li class="swatch FAD selected" title="森林冒險"><span class="info">coming soon</span></li>
+            <li class="swatch MGD" title="魔幻花園"><span class="info">coming soon</span></li>
+            <li class="swatch GST" title="葡萄草莓"><span class="info">coming soon</span></li>
+            <li class="swatch UBK" title="宇宙黑"></li>
+            <li class="swatch FP" title="奇幻紫"></li>
+            <li class="swatch PGL" title="極地冰川"></li>
+            <li class="swatch MST" title="薄荷草莓"></li>
+          </ul>
+        </div>
+        <!---->
+        <h5 class="customDesignTitle">➋ 選擇袋蓋款式</h5>
+        <div class="customUnit">
+          <ul class="swatchList" id="customCover">
+            <li class="swatch2 YTM selected" title="黃喉貂"><span class="info">coming soon</span></li>
+            <li class="swatch2 RS" title="山麻雀"><span class="info">coming soon</span></li>
+            <li class="swatch2 SLC" title="微笑石虎"><span class="info">coming soon</span></li>
+            <li class="swatch2 SBB" title="太空黑熊"></li>
+            <li class="swatch2 UH" title="粉紅獨角馬"></li>
+            <li class="swatch2 CWD" title="白海豚"></li>
+            <li class="swatch2 OTR" title="水獺"></li>
+            <li class="swatch2 FSD" title="水鹿"></li>
+            <li class="swatch2 BFS" title="黑面琵鷺"></li>
+            <li class="swatch2 STG" title="石虎"></li>
+            <li class="swatch2 RBYA" title="棉花兔兔"></li>
+            <li class="swatch2 DBL" title="湯圓藍"></li>
+          </ul>
+          <small class="form-text text-danger">配色模擬雖已相當擬真，但因不同螢幕皆有色差，實品仍會有些差異，敬請見諒！</small>
+        </div>
+        <!---->
+        <h5 class="customDesignTitle mt-4">➌ 產生訂製參數</h5>
+        <div class="form-group">
+          <button id="copyBtn" onclick="setCustomValue();" type="button"
+            class="btn btn-primary btn-sm">產生訂製參數並複製</button><br />
+          <span class="text-danger small">請複製下列訂製參數，並貼在購物車備註中，我們將依此參數為您訂製</span>
+          <p id="customValue" class="alert alert-secondary small mt-2">尚無參數，請點選上方「產生參數並複製」按鈕</p>
+        </div>
+        <!----><!---->
+        訂購請至 &gt; <a href="https://shop.niizo.com/products/sgb01" target="_blank">輕量護脊書包商品頁</a>
+      </div>
+    </div>
+  </div>
+
+  <!---->
+  <div class="container-fluid footer">
+    <div class="row  text-light small">
+      <div class="col text-center">版權所有 © SINCE 2008 niizo All Rights Reserved.</div>
+    </div>
+  </div>
+</body>
+
+</html>

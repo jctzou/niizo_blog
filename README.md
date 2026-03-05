@@ -2,6 +2,9 @@
 
 這是一個主要用於存放 niizo 品牌部落格 (Blog) 靜態網頁與相關資源的專案儲存庫。本專案目前透過 GitHub Pages / Cloudflare Pages 進行線上部署。
 
+## 部署說明
+部署路徑：本地 Mac 修改 -> GitHub Desktop 推送 (Push) -> Cloudflare Pages 自動偵測並發布。
+
 ---
 
 ## 關於 `customization` 目錄的特殊性
